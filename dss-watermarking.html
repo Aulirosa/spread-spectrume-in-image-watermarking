@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Akun</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Serif+Caption&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rouge+Script&display=swap"
+      rel="stylesheet"
+    />
+    <link href="css/style-watermarking.css" rel="stylesheet" />
+  </head>
+  <body>
+    <nav>
+      <img
+        class="logo-verimed"
+        src="image/logo-verimed.png"
+        alt="logo-verimed"
+      />
+      <span class="tombol-navbar">
+        <ul>
+          <li onclick="scrollToSection('embedwatermark')"><a>Embed</a></li>
+          <li onclick="scrollToSection('extractwatermark')"><a>Extract</a></li>
+          <li><a class="tombol-logout" href="index.html">Logout</a></li>
+        </ul>
+      </span>
+    </nav>
+    <section id="embedwatermark" class="embed-watermark">
+      <div class="container">
+        <h2>Embed Watermark</h2>
+        <label for="originalImage">Original Image:</label><br />
+        <input type="file" id="originalImage" accept="image/*" /><br />
+        <canvas id="canvasOriginal" style="display: none"></canvas><br />
+
+        <label for="watermarkImage">Watermark Image:</label><br />
+        <input type="file" id="watermarkImage" accept="image/*" /><br />
+        <canvas id="canvasWatermark" style="display: none"></canvas><br />
+
+        <button class="btn-embed btn" type="submit" id="applyWatermark">
+          Embed</button
+        ><br />
+        <!-- <canvas id="canvasOriginal" width="500" height="500"></canvas><br />
+        <canvas id="canvasWatermark" width="500" height="500"></canvas><br /> -->
+        <p>Hasil:</p>
+        <canvas id="canvasResult"></canvas>
+        <button class="btn" id="downloadResult">Download Result</button>
+      </div>
+    </section>
+    <section id="extractwatermark" class="extract-watermark">
+      <div class="container">
+        <h2>Extract Watermark</h2>
+        <label for="originalImage">Original Image:</label><br />
+        <input type="file" id="originalImage" accept="image/*" /><br />
+        <canvas id="canvasOriginal" style="display: none"></canvas><br />
+
+        <label for="watermarkedImage">Watermarked Image:</label><br />
+        <input type="file" id="watermarkedImage" accept="image/*" /><br />
+        <button class="btn-embed btn" id="extractWatermark">
+          Extract Watermark
+        </button>
+        <canvas id="canvasExtractedWatermark"></canvas>
+      </div>
+    </section>
+  </body>
+  <script src="script.js"></script>
+  <script>
+    function scrollToSection(embedwatermark) {
+      document.getElementById(embedwatermark).scrollIntoView({
+        behavior: "smooth",
+      });
+    }
+  </script>
+</html>
